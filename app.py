@@ -7,9 +7,6 @@ app = Flask(__name__)
 # views:
 @app.route('/')
 def index():
-	if 'username' in session:
-		logged_in = 1
-	logged_in = 0
 	return render_template("index.html")
 
 # GET is default method, just renders the login page
@@ -18,11 +15,23 @@ def index():
 def login():
 	error = None
 	if request.method == 'POST':
+		session['username'] = request.form['username']
 		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
 			error = 'Invalid, please try again'
 		else:
 			return redirect('/')
 	return render_template("login.html", error=error)
+
+@app.route('/logout', methods=['GET', 'POST'])
+def logout():
+	# if request.method == 'POST':
+	# 	if request.form['/logout'] == "yes":
+	# 		session.pop('username', None)
+	# 		return redirect('/')
+	session.pop('username', None)
+	return render_template("logout.html")
+	
+	# return redirect('/')
 
 @app.errorhandler(404)
 def page_not_found(error):
