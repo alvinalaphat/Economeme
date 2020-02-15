@@ -1,1 +1,3 @@
-# uncommonhacks
+# Economeme
+
+Meme betting app
