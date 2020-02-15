@@ -22,25 +22,39 @@ def login():
 			return redirect('/')
 	return render_template("login.html", error=error)
 
+# def login():
+# error = None
+# if request.method == 'POST':
+#     if valid_login(request.form['username'],
+#                    request.form['password']):
+#         return log_the_user_in(request.form['username'])
+#     else:
+#         error = 'Invalid username/password'
+# # the code below is executed if the request method
+# # was GET or the credentials were invalid
+# return render_template('login.html', error=error)
+
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-	# if request.method == 'POST':
-	# 	if request.form['/logout'] == "yes":
-	# 		session.pop('username', None)
-	# 		return redirect('/')
-	session.pop('username', None)
-	return render_template("logout.html")
+	if request.method == 'POST':
+		if request.args.get('logout', 1):
+			print("logging out\n")
+			session.pop('username', None)
+			return render_template("/")
+	else:
+		return render_template("logout.html")
 	
-	# return redirect('/')
+# unique user profile
+#@app.route('/user/<username>')
+@app.route('/profile')
+def profile():
+	return render_template("profile.html")
+
 
 @app.errorhandler(404)
 def page_not_found(error):
     return render_template('404.html'), 404
 
-# unique user profile
-@app.route('/user/<username>')
-def profile(username):
-	return '{}\'s profile'.format(escape(username))
 
 @app.route('/subpage')
 def hello_world():
