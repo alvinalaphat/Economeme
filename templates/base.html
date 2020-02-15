@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!--responsive resizing for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css" media="screen"/>
+    <title>Economeme</title>
+ </head>
+ <body>
+ 	<div class="container">
+	 	<h1> This is base.html my dudes </h1>
+	 	<h2> Nav: </h2>
+	 	<ul>
+	 		<li><a href="/">home</a></li>
+	 		<li><a href="/login">login</a></li>
+	 	</ul>
+
+	 	{% if logged_in == false %}
+	          <h3> You are not logged in. </h3>
+	   	{% endif %}
+
+	 	<!-- content for individual html pages goes here -->
+	 	<div id="content">
+	            {% block content %}{% endblock %}
+	    </div>
+	</div>
+
+ </body>
+</html>
