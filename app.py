@@ -1,6 +1,6 @@
 from flask import Flask, url_for, request, render_template, session, redirect
 from markupsafe import escape
-from flask.ext.mongoengine import MongoEngine
+from flask_mongoengine import MongoEngine
 from flask_mongoengine.wtf import model_form
 from mongoengine import connect
 from mongoengine import *
@@ -13,14 +13,14 @@ app = Flask(__name__)
 db = MongoEngine(app)
 
 # MongoDB Atlas URI: This would usually come from your config file
-#DB_URI = "mongodb+srv://<username>:<password>@<database-name>.mongodb.net/test?retryWrites=true&w=majority"
+DB_URI = "mongodb+srv://lukemarushack:gHmKkInrZNQeI3B6@economeme-0ffr6.mongodb.net/test?retryWrites=true&w=majority"
 
 app.config["MONGODB_HOST"] = DB_URI
 
 # views:
 @app.route('/')
 def preview():
- 	return render_template("preview.html")
+ 	return render_template("index.html")
 
 # GET is default method, just renders the login page
 # POST method is for users to send a POST request w their login info to /login
@@ -53,6 +53,12 @@ def logout():
 @app.route('/profile')
 def profile():
 	return render_template("profile.html")
+
+
+
+@app.route('/signup')
+def signup():
+	return render_template("signup.html")
 
 @app.errorhandler(404)
 def page_not_found(error):
