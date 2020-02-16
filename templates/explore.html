@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <!--  This site was created in Webflow. http://www.webflow.com  -->
-<!--  Last Published: Sun Feb 16 2020 07:59:02 GMT+0000 (Coordinated Universal Time)  -->
-<html data-wf-page="5e48bd20a90a2cbc623af78c" data-wf-site="5e487e859065e789eb13320d">
+<!--  Last Published: Sun Feb 16 2020 10:16:51 GMT+0000 (Coordinated Universal Time)  -->
+<html data-wf-page="5e48fcd6baff8f8174aa1bcc" data-wf-site="5e487e859065e789eb13320d">
 <head>
   <meta charset="utf-8">
   <title>Explore</title>
@@ -84,13 +84,29 @@
       <div class="container-2 w-container"><a href="#" class="w-nav-brand"></a>
         <nav role="navigation" class="nav-menu w-nav-menu">
           <div class="navig">
-            <div class="navigation-icon-2"></div><a href="#" class="navigation-item-3 w-nav-link">Home</a></div>
+            <a href="index.html" class="navigation-item-3 w-inline-block">
+              <div class="navigation-icon-2"></div>
+              <div>Home</div>
+            </a>
+          </div>
           <div class="navig">
-            <div class="navigation-icon-2"></div><a href="#" class="navigation-item-3 w-nav-link">Explore</a></div>
+            <a href="explore.html" class="navigation-item-3 w-inline-block w--current">
+              <div class="navigation-icon-2"></div>
+              <div>Explore</div>
+            </a>
+          </div>
           <div class="navig">
-            <div class="navigation-icon-2"></div><a href="#" class="navigation-item-3 w-nav-link">Community</a></div>
+            <a href="#" class="navigation-item-3 w-inline-block">
+              <div class="navigation-icon-2"></div>
+              <div>Memefolio</div>
+            </a>
+          </div>
           <div class="navig">
-            <div class="navigation-icon-2"></div><a href="#" class="navigation-item-3 w-nav-link">Memefolio</a></div>
+            <a href="leaderboard.html" class="navigation-item-3 w-inline-block">
+              <div class="navigation-icon-2"></div>
+              <div>Leaderboard</div>
+            </a>
+          </div>
         </nav>
         <div class="w-nav-button">
           <div class="w-icon-nav-menu"></div>
@@ -99,8 +115,14 @@
       <div class="contain0">
         <div class="container">
           <div class="section">
-            <div class="searchbar">
-              <div class="search-2">Search</div>
+            <div class="w-form">
+              <form id="email-form-2" name="email-form-2" data-name="Email Form 2" class="form"><input type="text" class="searchbar w-input" maxlength="256" name="Search" data-name="Search" placeholder="Let&#x27;s find your favorite meme" id="Search"><input type="submit" value="Search" data-wait="Please wait..." class="submit-button-3 w-button"></form>
+              <div class="w-form-done">
+                <div>Thank you! Your submission has been received!</div>
+              </div>
+              <div class="w-form-fail">
+                <div>Oops! Something went wrong while submitting the form.</div>
+              </div>
             </div>
           </div>
           <h3 class="heading-4">Categories</h3>
@@ -120,9 +142,6 @@
                 <h3 class="cate1">THoughts</h3>
               </div>
             </div>
-            <div class="white-box-2 third mobile-full-box"></div>
-            <div class="white-box-2 two-third"></div>
-            <div class="white-box-2 third"></div>
           </div>
           <h3 class="heading-4">Trending Now</h3>
           <div data-animation="slide" data-duration="500" data-infinite="1" class="slider0 w-slider">
@@ -131,25 +150,25 @@
                 <div class="dash-row">
                   <div class="white-box-2 third">
                     <div class="box-padding">
-                      <div class="memepic"></div>
+                      <div class="memepic0"></div>
                       <div class="categorylabel">
                         <div class="text0-2">IMAGE</div>
                       </div>
-                      <h3 class="memename"><span class="text-span">#memename</span></h3>
+                      <h3 class="memename"><span class="text-span">#MikeWazowski</span></h3>
                     </div>
                   </div>
                   <div class="white-box-2 third">
                     <div class="box-padding">
-                      <div class="memepic"></div>
+                      <div class="memepic1"></div>
                       <div class="categorylabel">
                         <div class="text0-2">IMAGE</div>
                       </div>
-                      <h3 class="memename"><span ms-data="spend" class="memename">#memename</span></h3>
+                      <h3 class="memename"><span ms-data="spend" class="memename">#BabyYoda</span></h3>
                     </div>
                   </div>
                   <div class="white-box-2 third mobile-full-box">
                     <div class="box-padding">
-                      <div class="memepic"></div>
+                      <div class="memepic02"></div>
                       <div class="categorylabelthoughts">
                         <div class="text0-2">THOUGHTS</div>
                       </div>
@@ -165,9 +184,7 @@
             <div class="w-slider-arrow-left">
               <div class="icon-4 w-icon-slider-left"></div>
             </div>
-            <div class="w-slider-arrow-right">
-              <div class="icon-3 w-icon-slider-right"></div>
-            </div>
+            <div class="w-slider-arrow-right"><img src="images/noun_next-arrow_3002656.png" srcset="images/noun_next-arrow_3002656.png 500w, images/noun_next-arrow_3002656.png 800w, images/noun_next-arrow_3002656.png 1080w, images/noun_next-arrow_3002656.png 1200w" sizes="80px" alt="" class="rightarrow"></div>
             <div class="w-slider-nav w-round"></div>
           </div>
           <div class="section-2">
@@ -177,31 +194,31 @@
           <div class="dash-row">
             <div class="white-box-2 third">
               <div class="box-padding" data-ix="modalwrapper">
-                <div class="memepic"></div>
+                <div class="memepic3"></div>
                 <div class="categorylabell0">
                   <div class="text0-2">IMAGE</div>
                 </div>
-                <h3 class="memename">#memename</h3>
+                <h3 class="memename">#mhm</h3>
                 <div class="memedesc">Meme description</div>
               </div>
             </div>
             <div class="white-box-2 third">
               <div class="box-padding">
-                <div class="memepic"></div>
+                <div class="memepic04"></div>
                 <div class="categorylabelthoughts">
                   <div class="text0-2">THOUGHTS</div>
                 </div>
-                <h3 class="memename"><span ms-data="spend">#memename</span></h3>
+                <h3 class="memename"><span ms-data="spend">#StateofKansas</span></h3>
                 <div class="memedesc">Meme description</div>
               </div>
             </div>
             <div class="white-box-2 third mobile-full-box">
               <div class="box-padding">
-                <div class="memepic"></div>
+                <div class="memepic05"></div>
                 <div class="categorylabelphrases0">
                   <div class="text0-2">PHRASES</div>
                 </div>
-                <h3 class="memename">#memename</h3>
+                <h3 class="memename">#LOFIHipHop</h3>
                 <div class="memedesc">Meme description</div>
               </div>
             </div>
@@ -209,47 +226,47 @@
             <div class="white-box-2 third"></div>
           </div>
           <div class="dash-row">
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelimg">
                   <div class="text0-2">IMAGE</div>
                 </div>
-                <div class="memepic"></div>
+                <div class="memepic4"></div>
                 <h3 class="memename">#memename</h3>
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelthoughts1">
                   <div class="text0-2">THOUGHTS</div>
                 </div>
-                <div class="memepic"></div>
+                <div class="memepic06"></div>
                 <h3 class="memename">#memename</h3>
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelphrases">
                   <div class="text0-2">PHRASES</div>
                 </div>
-                <div class="memepic"></div>
+                <div class="memepic07"></div>
                 <h3 class="memename">#memename</h3>
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Terms-of-use.docx" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelphrases">
                   <div class="text0-2">PHRASES</div>
                 </div>
-                <div class="memepic"></div>
+                <div class="memepic08"></div>
                 <h3 class="memename">#memename</h3>
                 <div class="memedesc">This is brief description of the meme.</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Terms-of-use.docx" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabel">
                   <div class="text0-2">IMAGE</div>
@@ -259,7 +276,7 @@
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelthoughts1">
                   <div class="text0-2">THOUGHTS</div>
@@ -269,7 +286,7 @@
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelphrases">
                   <div class="text0-2">PHRASES</div>
@@ -279,7 +296,7 @@
                 <div class="memedesc">This is brief description of the meme</div>
                 <div class="doc-date">27 January 2019</div>
               </div><img src="images/paper.svg" alt="" class="paper"></a>
-            <a href="documents/Project-proposal.pdf" class="white-box-2 link-box paper-box w-inline-block">
+            <a href="#" class="white-box-2 link-box paper-box w-inline-block">
               <div class="box-padding paper-padding">
                 <div class="categorylabelthoughts1">
                   <div class="text0-2">THOUGHTS</div>
@@ -395,10 +412,10 @@ var chart = new Chart(ctx, {
                           </div>
                         </div>
                         <div class="column-2 w-col w-col-6">
-                          <div id="w-node-f8930c71cbac-623af78c" class="upordown-3">
+                          <div id="w-node-f8930c71cbac-74aa1bcc" class="upordown-3">
                             <div>+40% increase</div>
                           </div>
-                          <div id="w-node-f8930c71cbaf-623af78c" class="imageofmeme-2"></div>
+                          <div id="w-node-f8930c71cbaf-74aa1bcc" class="imageofmeme-2"></div>
                         </div>
                       </div>
                     </div>
@@ -408,8 +425,8 @@ var chart = new Chart(ctx, {
                           <div class="graphinserthere-2"></div>
                         </div>
                         <div class="column-2 w-col w-col-6">
-                          <div id="w-node-f8930c71cbb5-623af78c" class="upordown-3"></div>
-                          <div id="w-node-f8930c71cbb6-623af78c" class="imageofmeme-2"></div>
+                          <div id="w-node-f8930c71cbb5-74aa1bcc" class="upordown-3"></div>
+                          <div id="w-node-f8930c71cbb6-74aa1bcc" class="imageofmeme-2"></div>
                         </div>
                       </div>
                     </div>
@@ -419,8 +436,8 @@ var chart = new Chart(ctx, {
                           <div class="graphinserthere-2"></div>
                         </div>
                         <div class="column-2 w-col w-col-6">
-                          <div id="w-node-f8930c71cbbc-623af78c" class="upordown-3"></div>
-                          <div id="w-node-f8930c71cbbd-623af78c" class="imageofmeme-2"></div>
+                          <div id="w-node-f8930c71cbbc-74aa1bcc" class="upordown-3"></div>
+                          <div id="w-node-f8930c71cbbd-74aa1bcc" class="imageofmeme-2"></div>
                         </div>
                       </div>
                     </div>

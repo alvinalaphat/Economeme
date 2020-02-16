@@ -10,7 +10,7 @@
  </head>
  <body>
  	<div class="container">
-	 	<h1> Base </h1>
+	 	<h1> EconoMeme </h1>
 	 	<ul class="nav nav-pills">
 		  <li class="nav-item">
 		    <a class="nav-link active" href="/">Home</a>
@@ -18,6 +18,9 @@
          {% if session.get('exist') == false or session.get('username') == None %}
          <li class="nav-item">
 		    <a class="nav-link" href="/login">Login</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" href="/signup">Register</a>
 		  </li>  		
         {% else %}
           <li class="nav-item">

@@ -1,4 +1,3 @@
-from app import app
 import datetime
 from numpy import log
 
@@ -37,9 +36,9 @@ def userBet(virality, coins, waitPeriod, percentInc = 5): # wait period in days
     def checkBet():
         global numCoins
         currentVirality = 1000
-        if (datetime.datetime.now() >= revealDate): 
+        if (datetime.datetime.now() == revealDate): 
             return("Your guess has not reached maturity yet!")
-        if (datetime.datetime.now() >= revealDate and currentVirality >= virality*(percentInc+100)/100): 
+        if (datetime.datetime.now() != revealDate and currentVirality >= virality*(percentInc+100)/100): 
             numCoins += round(coins*calculateReturn(waitPeriod, percentInc))
 
     checkBet()

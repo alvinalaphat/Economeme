@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
-	<h3> login page </h3>
+	<h3> Login Page </h3>
 	<br>
 	<form action="" method="post">
 		<input type="text" name="username" placeholder="username" value="{{ request.form.username }}">
 		<br><br>
-		<input type="text" name="password" placeholder="password" value="{{ request.form.password }}">
+		<input type="password" name="password" placeholder="password" value="{{ request.form.password }}">
 		<br><br>
 		<input class="btn btn-success" type="submit" value="Login">
 		{% if error %}
