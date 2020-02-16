@@ -1,8 +1,17 @@
 # this function will deternine exactly how much a user will make off of a bet
+
+# bugs/issues: needs to get virality from the meme
+# needs to get numCoins from the user
+# needs to do checkbet after a given amount of time
+# calculate the currently virality after a certain time
+
 import datetime
 from numpy import log
 
 numCoins = 1000
+
+# Login Stipend
+numCoins += 10
 
 def calculateReturn(waitPeriod, percentInc):
     proportion = (1+(1/log(3+waitPeriod)))*(1.5*percentInc + 100)/100
@@ -32,7 +41,6 @@ def userBet(virality, coins, waitPeriod, percentInc = 5): # wait period in days
     def checkBet():
         global numCoins
         currentVirality = 1000
-        # change conditions for datetime.datetime.now to ">'  when implementing 
         if (datetime.datetime.now() > revealDate): 
             return("Your guess has not reached maturity yet!")
         if (datetime.datetime.now() > revealDate and currentVirality >= virality*(percentInc+100)/100): 
