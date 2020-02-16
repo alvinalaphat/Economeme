@@ -1,3 +1,0 @@
-# Economeme
-
-Meme betting app

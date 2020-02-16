@@ -1,21 +1,25 @@
-from app import app
-from flask_mongoengine.wtf import model_form
-
+# models.py 
+ 
+from mongoengine import *
+from app import db
+from helpers import *
+ 
+ 
 class User(db.Document):
-    username = db.StringField(max_length=50)
-    password = db.StringField(max_length=50)
+   # __tablename__ = 'users'
+   	current_user = BinaryField()
+    username = StringField(max_length=50, required=True)
+    password = StringField(max_length=50, required=True)
+    # numCoins = DecimalField() 
+    # last_bet
 
-# class Meme(db.Document):
-#     text = db.StringField()
-#     lang = db.StringField(max_length=3)
-#     tags = db.ListField(db.StringField(max_length=30))
-#     content = db.EmbeddedDocumentField(Content)
+class Bet(db.User):
+	# one bet instance
+	# cost 
+	# cloud
+	# success = BinaryField().  # 1 or 0
 
-# PostForm = model_form(Post)
+ 
+class Meme(db.Document):
+	# frequency
 
-# def add_post(request):
-#     form = PostForm(request.POST)
-#     if request.method == 'POST' and form.validate():
-#         # do something
-#         redirect('done')
-#     return render_template('add_post.html', form=form)
