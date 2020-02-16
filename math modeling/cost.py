@@ -10,6 +10,10 @@ def calculateReturn(waitPeriod, percentInc):
 
 def userBet(virality, coins, waitPeriod, percentInc = 5): # wait period in days
     global numCoins
+    coins = int(coins)
+    waitPeriod = int(waitPeriod)
+    percentInc = int(percentInc)
+
     if numCoins < coins:
         print('You do not have enough coins to make that bet!')
         return('You do not have enough coins to make that bet!')
@@ -29,13 +33,10 @@ def userBet(virality, coins, waitPeriod, percentInc = 5): # wait period in days
         global numCoins
         currentVirality = 1000
         # change conditions for datetime.datetime.now to ">'  when implementing 
-        if (datetime.datetime.now() == revealDate): 
+        if (datetime.datetime.now() > revealDate): 
             return("Your guess has not reached maturity yet!")
-        if (datetime.datetime.now() != revealDate and currentVirality >= virality*(percentInc+100)/100): 
+        if (datetime.datetime.now() > revealDate and currentVirality >= virality*(percentInc+100)/100): 
             numCoins += round(coins*calculateReturn(waitPeriod, percentInc))
 
     checkBet()
-
-userBet(50, 5, 1, 10)
-print(numCoins)
         
