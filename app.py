@@ -1,8 +1,12 @@
 from flask import Flask, url_for, request, render_template, session, redirect
 from markupsafe import escape
+from flask_mongoengine import MongoEngine
+from models import *
 
 # creates the Flask application
 app = Flask(__name__)
+app.config.from_pyfile('the-config.cfg')
+db = MongoEngine(app)
 
 # views:
 @app.route('/')
@@ -36,13 +40,9 @@ def login():
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-	if request.method == 'POST':
-		if request.args.get('logout', 1):
-			print("logging out\n")
-			session.pop('username', None)
-			return render_template("/")
-	else:
-		return render_template("logout.html")
+	print("logging out\n")
+	session.pop('username', None)
+	return redirect("/")
 	
 # unique user profile
 #@app.route('/user/<username>')
