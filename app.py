@@ -1,6 +1,6 @@
 from flask import Flask, url_for, request, render_template, session, redirect
 from markupsafe import escape
-from flask_mongoengine import MongoEngine
+from flask.ext.mongoengine import MongoEngine
 from flask_mongoengine.wtf import model_form
 from mongoengine import connect
 from mongoengine import *
@@ -11,6 +11,11 @@ from mongoengine import *
 # creates the Flask application
 app = Flask(__name__)
 db = MongoEngine(app)
+
+# MongoDB Atlas URI: This would usually come from your config file
+#DB_URI = "mongodb+srv://<username>:<password>@<database-name>.mongodb.net/test?retryWrites=true&w=majority"
+
+app.config["MONGODB_HOST"] = DB_URI
 
 # views:
 @app.route('/')

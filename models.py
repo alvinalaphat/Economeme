@@ -14,7 +14,7 @@ class User(db.Document):
     # last_bet
 
 class Bet(db.User):
-	# one bet instance
+	# t = x
 	# cost 
 	# cloud
 	# success = BinaryField().  # 1 or 0
@@ -22,4 +22,5 @@ class Bet(db.User):
  
 class Meme(db.Document):
 	# frequency
+	# virality
 
