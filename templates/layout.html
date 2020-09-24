@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Economeme - {% block title %}{% endblock %}</title>
+        <link rel="shortcut icon" type="image/x-icon" href="./static/images/stocks.png" />
+        <meta name="keywords" content="">
+        <meta name="description" content="">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <!-- stylesheet css -->
+        <link rel="stylesheet" href="./static/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./static/css/font-awesome.min.css">
+        <link rel="stylesheet" href="./static/css/nivo-lightbox.css">
+        <link rel="stylesheet" href="./static/css/nivo_themes/default/default.css">
+        <link rel="stylesheet" href="./static/css/templatemo-style.css">
+        <!-- google web font css -->
+        <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    
+    </head>
+    <body>
+        <div class="container">
+            <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                    <span class="icon icon-bar"></span>
+                </button>
+                <a href="/home" class="navbar-brand"><img src="./static/images/economeme.png" class="img-responsive" alt="logo"></a>
+            </div>
+            <div class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right textss">
+                    <li><a href="/home" class="active"> <strong>Home</strong></a></li>
+                    <li><a href="/trade">Trade</a></li>
+                    <li><a href="/profile">{{username}}</a></li>
+                    <li><a href="/profile">Leaderboard</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </div>
+            </div>
+        </div>	
+        
+        <div id="contents">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </body>
+</html>
