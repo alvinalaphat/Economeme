@@ -43,4 +43,4 @@ def userBet(virality, coins, waitPeriod, percentInc = 5): # wait period in days
 
     checkBet()
 
-    # userBet(50,1000,1,50) # set params
+    userBet(50,1000,1,50) # set params

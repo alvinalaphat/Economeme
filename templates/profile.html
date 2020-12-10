@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Economeme - Profile</title>
+	<link rel="shortcut icon" type="image/x-icon" href="./static/images/stocks.png" />
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./static/css/nivo-lightbox.css">
+	<link rel="stylesheet" href="./static/css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="./static/css/templatemo-style.css">
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
+<style>
+
+h2, h3 {
+	text-align: center;
+}
+
+i {
+	color: rgb(139, 43, 255);
+	font-style: Times New Roman;
+}
+
+</style>
+
+</head>
+<body>
+	
+<!-- navigation -->
+
+	<div class="container">
+		<div class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="/home" class="navbar-brand"><img src="./static/images/economeme.png" class="img-responsive" alt="logo"></a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="/home">Home</a></li>
+				<li><a href="/trade">Trade</a></li>
+				<li><a href="/profile"><strong>Profile</strong></a></li>
+				<li><a href="/profile">Leaderboard</a></li>
+				<li><a href="/logout" class="active">Logout</a></li>
+			</ul>
+		</div>
+	</div>
+</div>		
+
+<!-- profile section -->
+<div id="contact">
+	<div class="container">
+		<div class="row">
+			{% block content %}
+				<h2>Profile</h2>
+				<div>
+					<h3><strong>Username</strong><br><i>{{username}}</i></h3><br>
+				</div>
+				<div>
+					<h3><strong>Email</strong><br> <i>{{email}}</i></h3><br>
+				</div>
+				<div>
+					<h3><strong>Coins</strong><br> <i>{{coins}}</i></h3>
+				</div>
+		</div>	
+			{% endblock content %}
+		</div>
+	</div>
+</div>		
+
+<!-- javascript js -->	
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>	
+<script src="./js/nivo-lightbox.min.js"></script>
+<script src="./js/custom.js"></script>
+
+</body>
+</html>

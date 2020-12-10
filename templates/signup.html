@@ -1,44 +1,167 @@
 <!DOCTYPE html>
-
-<html data-wf-page="5e48fcd6baff8f5b92aa1b82" data-wf-site="5e487e859065e789eb13320d">
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Economeme</title>
-  <meta content="width=device-width, initial-scale=1" name="viewport">
-  <meta content="Webflow" name="generator">
+    <title>Economeme - Signup</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./static/images/stocks.png" />
+    <meta name="keywords" content="">
+	<meta name="description" content="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link href="{{ url_for('static', filename='css/normalize.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ url_for('static', filename='css/webflow.css') }}" rel="stylesheet" type="text/css" />
-  <link href="{{ url_for('static', filename='css/economeme.webflow.css') }}" rel="stylesheet" type="text/css" />
-  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
-  <script type="text/javascript">WebFont.load({  google: {    families: ["Varela:400","Karla:regular,700"]  }});</script>
-  <link href="images/favicon.ico" rel="shortcut icon" type="image/x-icon">
-  <link href="images/webclip.png" rel="apple-touch-icon">
-  <script src="https://api.memberstack.io/static/memberstack.js" data-memberstack-id="492fe7dc98e13f13d8933202d4c9b994"></script>
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="./static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="./static/css/nivo-lightbox.css">
+	<link rel="stylesheet" href="./static/css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="./static/css/templatemo-style.css">
+	<!-- google web font css -->
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+    
+<style>
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+</style>
 </head>
 <body>
-  <div class="login-page-wrapper"><a href="/login" class="login-nav-link">Login</a>
-    <div class="login-container w-form">
-      <h1 class="login-head"><font color="purple">Sign up to be an EconoMemer</font></h1>
-      <form id="sign-up" name="wf-form-Sign-up-Form" data-name="Sign up Form" method="post" ms-signup="true" class="memberstack-form">
-        <div class="field-row">
-          <div class="field-wrapper first-name-wrapper"><label for="node" class="signup-label">Username</label><input type="text" maxlength="256" required="" ms-field="first-name" class="signup-field w-input"></div>
-        </div>
-        <div class="field-wrapper"><label for="node" class="signup-label">Email address</label><input type="email" maxlength="256" required="" ms-field="email" class="signup-field w-input"></div>
-        <div class="field-wrapper"><label for="password-2" class="signup-label">Password</label><input type="password" class="signup-field w-input" maxlength="256" name="password-2" data-name="Password 2" ms-field="password" id="password-2" required=""></div><label class="w-checkbox gdpr-checkbox"><input type="checkbox" id="checkbox" name="checkbox" data-name="Checkbox" required="" class="w-checkbox-input"><span for="checkbox" class="terms-text w-form-label"> I agree to the <a href="#" class="login-page-link">Terms</a> and <a href="#" class="login-page-link">Privacy Policy</a></span></label><input type="submit" value="Complete Signup" data-wait="Please wait..." class="login-button w-button" onclick="redirect();"></form>
-      <div class="w-form-done">
-        <div>Thank you! Your submission has been received!</div>
-      </div>
-      <div class="error-message w-form-fail">
-        <div>Oops! Something went wrong while submitting the form.</div>
-      </div>
+	
+<!-- navigation -->
+
+<div class="container">
+    <div class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="navbar-header">
+        <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon icon-bar"></span>
+            <span class="icon icon-bar"></span>
+            <span class="icon icon-bar"></span>
+        </button>
+        <a href="/" class="navbar-brand"><img src="./static/images/economeme.png" class="img-responsive" alt="logo"></a>
     </div>
-  </div>
-  <script src="js/webflow.js" type="text/javascript"></script>
-  <script>
-    function redirect(){
-    window.location="https://economeme.webflow.io/";
+    <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right textss">
+            <li><a href="/login">Login</a></li>
+        </ul>
+    </div>
+</div>
+</div>
+
+<!-- home section -->
+<div id="home">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4 col-sm-3"></div>
+				<form method="POST" action="{{ url_for('signup') }}" name="myForm" onsubmit="return validateForm()">
+
+                    <div class="container">
+                      <h1>Register</h1>
+                      <p>Please fill in this form to create an account.</p>
+
+                      <hr>
+
+                      <label for="username"><b>Username</b></label>
+                      <input type="text" placeholder="Enter Username" name="username" required>
+
+                      <label for="email"><b>Email</b></label>
+                      <input type="text" placeholder="Enter Email" name="email" required>
+                  
+                      <label for="psw"><b>Password</b></label>
+                      <input type="password" placeholder="Enter Password" name="psw" required>
+                  
+                      <label for="psw-repeat"><b>Confirm Password</b></label>
+                      <input type="password" placeholder="Confirm Password" name="psw-repeat" required>
+
+                      <hr>
+                  
+                      <button type="submit" class="registerbtn" function()>Register</button>
+                    </div>
+
+        </form>
+			</div>
+			<div class="col-md-5 col-sm-3"></div>
+		</div>
+	</div>
+</div>
+
+<!-- divider section -->
+<div class="divider">
+	<div class="container">
+		<div class="row"> 
+			
+		</div>
+	</div>
+</div>
+
+<script>
+  function validateForm() {
+  var pass = document.forms["myForm"]["psw"].value;
+  var pass2 = document.forms["myForm"]["psw-repeat"].value;
+  var mail = document.forms["myForm"]["email"].value;
+
+  if (pass != pass2) {
+    alert("Passwords do not match. Try again.");
+    return false;
+  }
 }
 </script>
+
+<!-- javascript js -->	
+<script src="./js/jquery.js"></script>
+<script src="./js/bootstrap.min.js"></script>	
+<script src="./js/nivo-lightbox.min.js"></script>
+<script src="./js/custom.js"></script>
+
 </body>
 </html>

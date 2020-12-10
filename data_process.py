@@ -13,15 +13,6 @@ connection = pm.MongoClient('mongodb+srv://lukemarushack:gHmKkInrZNQeI3B6@econom
 db = connection.Economeme
 collection = db.memes
 
-# class StdOutListener(StreamListener):
-
-#     def on_data(self, data):
-#         print(data)
-#         return True
-
-#     def on_error(self, status):
-#         print(status)
-
 def search_for_hashtags(consumer_key, consumer_secret, access_token, access_token_secret, hashtag_phrase):
     
     #create authentication for accessing Twitter

@@ -1,87 +1,115 @@
-from flask import Flask, url_for, request, render_template, session, redirect
+from flask import Flask, url_for, request, render_template, session, redirect, flash
 from markupsafe import escape
 from flask_mongoengine import MongoEngine
 from flask_mongoengine.wtf import model_form
+import matplotlib
+matplotlib.use('Agg')
 from mongoengine import connect
+import random
+from graph import *
+from flask import Flask, render_template, flash, request, url_for, redirect, session
+from wtforms import Form, BooleanField, TextField, PasswordField, validators
+from passlib.hash import sha256_crypt
+import gc
+import pymongo as pm
 from mongoengine import *
 from models import *
 from helpers import userBet, calculateReturn
 
-# use to connect the MongoDB databse:
-# connect('project1', host='127.0.0.1', port=5000)
+connection = pm.MongoClient('mongodb+srv://alvinalaphat:1uScotvkqjQkM0HV@economeme-0ffr6.mongodb.net/test?retryWrites=true&w=majority', 27017)
+dbs = connection.Profiles
+collection = dbs.users
 
 # creates the Flask application
 app = Flask(__name__)
 db = MongoEngine(app)
 
-# MongoDB Atlas URI: This would usually come from your config file
-DB_URI = "mongodb+srv://lukemarushack:gHmKkInrZNQeI3B6@economeme-0ffr6.mongodb.net/test?retryWrites=true&w=majority"
-
-app.config["MONGODB_HOST"] = DB_URI
-# app.config['MONG_DBNAME'] = ''
-
-
-# views:
-@app.route('/', methods=['GET','POST'])
-def preview():
- 	return render_template("preview.html")
-
+# Views
 # GET is default method, just renders the login page
 # POST method is for users to send a POST request w their login info to /login
+@app.route('/', methods=['GET','POST'])
+def preview():
+	session["logged_in"] = False
+	return render_template("index.html")
+
+@app.route('/profile', methods=['GET','POST'])
+def profile():
+	find_user = {"username" : request.form['username']}
+	current_profile = collection.find_one(find_user)
+	return render_template("profile.html")
+
+@app.route('/leaderboard', methods=['GET','POST'])
+def leaderboard():
+ 	return render_template("leaderboard.html")
+
+@app.route('/layout', methods=['GET','POST'])
+def template():
+	find_user = {"username" : request.form['username']}
+	current_profile = collection.find_one(find_user)
+	home()
+	return render_template("layout.html", username=current_profile['username'], email=current_profile['email'], coins=current_profile['coins'])
+
+@app.route('/home', methods=['GET','POST'])
+def home():
+	template()
+	return render_template("home.html")
+
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-	error = None
 	if request.method == 'POST':
-		session['username'] = request.form['username']
-		session['password'] = request.form['password']
-		current_user = User(username=session.get('username'), password=session.get('password')).save()
-		#print(current_user.username)
-		if request.form['username'] != 'admin' or request.form['password'] != 'admin':
-			session['valid'] = 0;
-			error = 'Invalid, please try again'
-		else:
-			session['valid'] = 1;
-			return redirect('/')
-	return render_template("login.html", error=error)
+		session['logged_in'] = True
+		email = request.form['email']
+		password = request.form['psw']
+		user = {"email" : email, "password" : password}
+		if collection.find_one(user):
+			return template()
+	return render_template("login.html")
 
+@app.route('/signup', methods=['GET', 'POST'])
+def signup():
+	if request.method == 'POST':
+		session['logged_in'] = True
+		new_user = {"username" : request.form['username'],
+				"email" : request.form['email'],
+				"password" : request.form['psw'],
+				"coins" : 500}
+		collection.insert_one(new_user)
+		template()
+		return home()
+	return render_template("signup.html")
 
 @app.route('/logout', methods=['GET', 'POST'])
 def logout():
-	print("logging out\n")
-	session.pop('username', None)
-	return redirect("/")
-	
-# unique user profile
-#@app.route('/user/<username>')
-@app.route('/profile')
-def profile():
-	return render_template("profile.html")
+	print("Logging Out")
+	session['logged_in'] = False
+	return preview()
 
-@app.route('/index', methods=['GET','POST'])
+@app.route('/trade', methods=['GET','POST'])
+def trade():
+	final = []
+	memes = graph()
+	for key,value in memes.items():
+		final.append(Meme(key,value[-1]))
+	return render_template("trade.html", data=final)
+
+@app.route('/profile', methods=['GET','POST'])
 def bet():
 	# days_to_win = str(request.form['days_bet']).lower()
 	# percentage = str(request.form['Percentage']).lower()
 	# coins = str(request.form['Coins']).lower()
 	# total_coins = userBet(1000, coins, days_to_win, percentage)
-	return render_template("index.html")
+	return render_template("profile.html")
 
-@app.route('/signup', methods=['GET', 'POST'])
-def signup():
-	if request.method == 'POST':
-		session['username'] = request.form['username']
-		session['password'] = request.form['password']
-		newUser = User(session.get('username'),session.get('password'),numCoins = 250).save()
-		return redirect("https://economeme.webflow.io/")
-	return render_template("signup.html")
+# unique user profile
+#@app.route('/user/<username>')
 
-@app.errorhandler(404)
-def page_not_found(error):
-    return render_template('404.html'), 404
-
-
-@app.route('/subpage')
-def hello_world():
-    return 'Hello, World!'
+# def signup():
+	# if request.method == 'POST':
+	# 	session['username'] = request.form['username']
+	# 	session['password'] = request.form['password']
+	# 	newUser = User(session.get('username'),session.get('password'),numCoins = 250).save()
+	# 	return redirect("https://economeme.webflow.io/")
+	# return render_template("signup.html")
     
 # Causes the website to rerender whenever you save your file
 app.config["DEBUG"] = True
